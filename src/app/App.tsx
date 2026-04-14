@@ -15,11 +15,12 @@ import Parametres from './pages/Parametres';
 import Aide from './pages/Aide';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user } = useApp();
+  // Commenté pour rendre toutes les pages publiques (accès sans connexion)
+  // const { user } = useApp();
 
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
+  // if (!user) {
+  //   return <Navigate to="/login" replace />;
+  // }
 
   return <>{children}</>;
 }
@@ -152,8 +153,8 @@ function AppRoutes() {
         }
       />
 
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="*" element={<Navigate to="/login" replace />} />
+      <Route path="/" element={<Navigate to="/accueil" replace />} />
+      <Route path="*" element={<Navigate to="/accueil" replace />} />
     </Routes>
   );
 }
